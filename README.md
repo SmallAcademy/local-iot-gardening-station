@@ -40,6 +40,12 @@ Arduino allows us to program our board so that it acts as desired. Create a new 
 
 ![](medias/screenshot-arduino.png)
 
+#### Library
+
+- [AHT20](https://github.com/Seeed-Studio/Seeed_Arduino_AHT20)
+	1. from Github: Download .ZIP 
+	2. In Arduino IDE: Sketch > Include library > Add .ZIP library and select the previously downloaded file
+
 ## Links and references
 
 - [Getting Started with Seeed Studio XIAO ESP32C3](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/)
