@@ -1,6 +1,6 @@
 # Gardening Station
 
-A smart device connected to a plant, which measures the soil moisture level, the ambient temperature and humidity and based on the data collected it waters the plant to meet its needs. The data is published online and a web interface allows direct interaction with the gardening station.
+A smart device connected to a plant, which measures the soil moisture level, the ambient temperature and humidity and based on the data collected it waters the plant to meet its needs.
 
 ![](medias/IMG_9961.jpg)
 ![](medias/IMG_9969.jpg)
@@ -40,29 +40,13 @@ Arduino allows us to program our board so that it acts as desired. Create a new 
 
 ![](medias/screenshot-arduino.png)
 
-
-### Node-red
-
-An instance of Node-red allows us to connect our devices to a dashboard. The easiest way is to have Node-red installed on a Raspberry Pi. Or on another computer that can stay on. Import the code from [iot-gardening-station-node-red.json](iot-gardening-station-node-red.json) into the Node-red dashboard to configure the dashboard and its connections as desired.
-
-![](medias/screenshot-nodered.png)
-![](medias/IMG_9975.jpg)
-
 ## Links and references
 
 - [Getting Started with Seeed Studio XIAO ESP32C3](https://wiki.seeedstudio.com/XIAO_ESP32C3_Getting_Started/)
 - [Grove - AHT20 I2C Industrial Grade Temperature&Humidity Sensor](https://wiki.seeedstudio.com/Grove-AHT20-I2C-Industrial-Grade-Temperature&Humidity-Sensor/)
 - [Arduino IDE - Importing a .zip Library](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries)
-- [Raspberry Pi Install](https://www.raspberrypi.com/software/)
-- [Raspberry Pi Remote Access](https://www.raspberrypi.com/documentation/computers/remote-access.html#installing-vnc-on-raspberry-pi)
-- [Running Node Red on the RPI](https://nodered.org/docs/getting-started/raspberrypi)
-- [Configuring Node Red](https://microcontrollerslab.com/install-node-red-raspberry-pi/)
-- [MQTT Publish Multiple Sensors to Node Red](https://microcontrollerslab.com/esp32-mqtt-publish-multiple-sensor-readings-node-red/)
-- [ESP32 MQTT – Publish and Subscribe with Arduino IDE](https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide/)
-- [Setting up a Mosquitto-MQTT Broker on a Raspberry Pi](https://gallaugher.com/setting-up-a-mosquitto-mqtt-broker-on-a-raspberry-pi/)
 - [Grove Shield Pinout](https://wiki.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-embedded-battery-management-chip/#hardware-connection)
 - [Watering Unit example](https://github.com/m5stack/M5Stack/blob/master/examples/Unit/WATERING/WATERING.ino)
-- [Remote Access with remote.it](https://medium.com/@nikhilagarwal1701/how-to-connect-to-your-raspberry-pi-over-different-network-from-your-device-b650cb372ea)
 
 ## License
 
