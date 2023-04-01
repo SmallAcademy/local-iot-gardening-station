@@ -1,10 +1,5 @@
-#include "env.h"
 #include <Wire.h>
 #include <AHT20.h>
-
-#define DEVICE 2
-
-int value = 0;
 
 AHT20 AHT;
 #define PIN_SOIL D1
