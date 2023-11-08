@@ -19,7 +19,6 @@ void setup() {
 
 void loop() {
   long now = millis();
-  lastMsg = now;
     
   // Temperature and humidity
   float humi, temp;
