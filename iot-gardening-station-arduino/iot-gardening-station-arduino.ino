@@ -10,6 +10,9 @@ int moistureThreshold = 50; // Moisture level needed for the plant
 int averageDuration = 120; // Number of records to make an average
 bool toPlotter = false; // show data in plotter (true or false)
 
+long moistureAvr = 0;
+long moistureReadingCounter = 0;
+
 void setup() {
   Serial.begin(115200);
   pinMode(PIN_PUMP, OUTPUT);
@@ -21,8 +24,6 @@ void loop() {
 
   delay(1000);
   long now = millis();
-  long moistureAvr = 0;
-  long moistureReadingCounter = 0;
     
   // Temperature and humidity
   float humi, temp;
@@ -54,7 +55,6 @@ void loop() {
     Serial.print(",");
     Serial.println(moistPct);
   }
-
 
   // take moisture reading for a given number of times and calculate the average
   if (moistureReadingCounter >= averageDuration ) {
