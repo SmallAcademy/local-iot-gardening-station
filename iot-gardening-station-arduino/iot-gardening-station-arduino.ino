@@ -5,10 +5,10 @@ AHT20 AHT;
 #define PIN_SOIL D1
 #define PIN_PUMP D2
 
-int rawADC;
+// variables
 int moistureThreshold = 50; // Moisture level needed for the plant
-long moistureAvr = 0;
-long moistureReadingCounter = 0;
+int averageDuration = 120 // Number of records to make an average
+bool toPlotter = false; // show data in plotter (true or false)
 
 void setup() {
   Serial.begin(115200);
@@ -18,35 +18,51 @@ void setup() {
 }
 
 void loop() {
+
+  delay(1000);
   long now = millis();
+  long moistureAvr = 0;
+  long moistureReadingCounter = 0;
     
   // Temperature and humidity
   float humi, temp;
   int ret = AHT.getSensor(&humi, &temp);
   humi = humi * 100;
-  Serial.println("Temperature: " + String(temp) + "°C");
-  Serial.println("Air humidity: " + String(humi) + "%");
 
   // Soil moisture
-  rawADC = analogRead(PIN_SOIL);
+  int rawADC = analogRead(PIN_SOIL);
   int moistPct = map(rawADC, 2500, 2000, 0, 100);
   if (moistPct > 100) {
     moistPct = 100;
   } else if (moistPct < 0) {
     moistPct = 0;
   }
-  Serial.println("Soil moisture: " + String(moistPct) + "%");
   moistureReadingCounter++;
   moistureAvr = moistureAvr + moistPct;
 
-  Serial.println("Counter: " + String(moistureReadingCounter) + "s");
-  Serial.println("");
-
-  // take moisture reading for 2 minutes and calculate average
-  if (moistureReadingCounter > 120 ) {
-    moistPct = (int) (moistureAvr / moistureReadingCounter);
-    Serial.println("Soil moisture average: " + String(moistPct) + "%");
+  // show readings
+  if (toPlotter == false) {
+    Serial.println("Temperature: " + String(temp) + "°C");
+    Serial.println("Air humidity: " + String(humi) + "%");
+    Serial.println("Soil moisture: " + String(moistPct) + "%");
+    Serial.println("Counter: " + String(moistureReadingCounter));
     Serial.println("");
+  } else {
+    Serial.print(temp);
+    Serial.print(",");
+    Serial.print(humi);
+    Serial.print(",");
+    Serial.println(moistPct);
+  }
+
+
+  // take moisture reading for a given number of times and calculate the average
+  if (moistureReadingCounter >= averageDuration ) {
+    moistPct = (int) (moistureAvr / moistureReadingCounter);
+    if (toPlotter == false) {
+      Serial.println("=====> Soil moisture average: " + String(moistPct) + "%");
+      Serial.println("");
+    }
     if (moistPct < moistureThreshold ) {
       digitalWrite(PIN_PUMP, HIGH);
       delay(5000);
