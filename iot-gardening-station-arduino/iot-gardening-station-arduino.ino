@@ -7,7 +7,7 @@ AHT20 AHT;
 
 // variables
 int moistureThreshold = 50; // Moisture level needed for the plant
-int averageDuration = 120 // Number of records to make an average
+int averageDuration = 120; // Number of records to make an average
 bool toPlotter = false; // show data in plotter (true or false)
 
 void setup() {
