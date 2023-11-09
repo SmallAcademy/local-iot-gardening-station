@@ -8,7 +8,7 @@ AHT20 AHT;
 // variables
 int moistureThreshold = 50; // Moisture level needed for the plant
 int averageDuration = 120; // Number of records to make an average
-bool toPlotter = false; // show data in plotter (true or false)
+bool toPlotter = true; // show data in plotter (true or false)
 
 long moistureAvr = 0;
 long moistureReadingCounter = 0;
@@ -49,10 +49,13 @@ void loop() {
     Serial.println("Counter: " + String(moistureReadingCounter));
     Serial.println("");
   } else {
+    Serial.print("Temperature(°C):");
     Serial.print(temp);
     Serial.print(",");
+    Serial.print("Air_Humidity(%):");
     Serial.print(humi);
     Serial.print(",");
+    Serial.print("Soil_Moisture(%):");
     Serial.println(moistPct);
   }
 
